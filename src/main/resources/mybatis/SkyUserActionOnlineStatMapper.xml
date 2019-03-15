@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.dao.SkyUserActionOnlineStatMapper">
+  <resultMap id="BaseResultMap" type="com.test.pojo.SkyUserActionOnlineStat">
+    <id column="stat_id" jdbcType="VARCHAR" property="statId" />
+    <result column="stat_time" jdbcType="TIMESTAMP" property="statTime" />
+    <result column="group_type" jdbcType="INTEGER" property="groupType" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="extend_type" jdbcType="INTEGER" property="extendType" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stat_id, stat_time, group_type, type, extend_type, number, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sky_user_action_online_stat
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sky_user_action_online_stat
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    insert into sky_user_action_online_stat (stat_id, stat_time, group_type, 
+      type, extend_type, number, 
+      create_time, update_time)
+    values (#{statId,jdbcType=VARCHAR}, #{statTime,jdbcType=TIMESTAMP}, #{groupType,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{extendType,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    insert into sky_user_action_online_stat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="statId != null">
+        stat_id,
+      </if>
+      <if test="statTime != null">
+        stat_time,
+      </if>
+      <if test="groupType != null">
+        group_type,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="extendType != null">
+        extend_type,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="statId != null">
+        #{statId,jdbcType=VARCHAR},
+      </if>
+      <if test="statTime != null">
+        #{statTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupType != null">
+        #{groupType,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="extendType != null">
+        #{extendType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    update sky_user_action_online_stat
+    <set>
+      <if test="statTime != null">
+        stat_time = #{statTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="groupType != null">
+        group_type = #{groupType,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="extendType != null">
+        extend_type = #{extendType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    update sky_user_action_online_stat
+    set stat_time = #{statTime,jdbcType=TIMESTAMP},
+      group_type = #{groupType,jdbcType=INTEGER},
+      type = #{type,jdbcType=INTEGER},
+      extend_type = #{extendType,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.test.pojo.SkyUserActionOnlineStat">
+    <id column="stat_id" jdbcType="VARCHAR" property="statId" />
+    <result column="stat_time" jdbcType="TIMESTAMP" property="statTime" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="group_type" jdbcType="INTEGER" property="groupType" />
+    <result column="extend_type" jdbcType="INTEGER" property="extendType" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    stat_id, stat_time, type, group_type, extend_type, number, create_time, update_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sky_user_action_online_stat
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from sky_user_action_online_stat
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    insert into sky_user_action_online_stat (stat_id, stat_time, type, 
+      group_type, extend_type, number, 
+      create_time, update_time)
+    values (#{statId,jdbcType=VARCHAR}, #{statTime,jdbcType=TIMESTAMP}, #{type,jdbcType=INTEGER}, 
+      #{groupType,jdbcType=INTEGER}, #{extendType,jdbcType=INTEGER}, #{number,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    insert into sky_user_action_online_stat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="statId != null">
+        stat_id,
+      </if>
+      <if test="statTime != null">
+        stat_time,
+      </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="groupType != null">
+        group_type,
+      </if>
+      <if test="extendType != null">
+        extend_type,
+      </if>
+      <if test="number != null">
+        number,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="statId != null">
+        #{statId,jdbcType=VARCHAR},
+      </if>
+      <if test="statTime != null">
+        #{statTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=INTEGER},
+      </if>
+      <if test="groupType != null">
+        #{groupType,jdbcType=INTEGER},
+      </if>
+      <if test="extendType != null">
+        #{extendType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    update sky_user_action_online_stat
+    <set>
+      <if test="statTime != null">
+        stat_time = #{statTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="type != null">
+        type = #{type,jdbcType=INTEGER},
+      </if>
+      <if test="groupType != null">
+        group_type = #{groupType,jdbcType=INTEGER},
+      </if>
+      <if test="extendType != null">
+        extend_type = #{extendType,jdbcType=INTEGER},
+      </if>
+      <if test="number != null">
+        number = #{number,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.test.pojo.SkyUserActionOnlineStat">
+    update sky_user_action_online_stat
+    set stat_time = #{statTime,jdbcType=TIMESTAMP},
+      type = #{type,jdbcType=INTEGER},
+      group_type = #{groupType,jdbcType=INTEGER},
+      extend_type = #{extendType,jdbcType=INTEGER},
+      number = #{number,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where stat_id = #{statId,jdbcType=VARCHAR}
+  </update>
+</mapper>
